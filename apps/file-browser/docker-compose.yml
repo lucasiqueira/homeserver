@@ -1,0 +1,11 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    volumes:
+      - /home/lucasiqueira:/srv/home/lucasiqueira
+      - /:/srv/root
+      - ./config/database:/database
+      - ./config/config.json:/config/filebrowser.json
+    entrypoint: /filebrowser --config /config/filebrowser.json
+    ports: 
+      - 10001:80
